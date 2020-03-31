@@ -1,7 +1,7 @@
 # Личный проект «Киноман» [![Build status][travis-image]][travis-url]
 
 * Студент: [Alexander Strakhovenko](https://up.htmlacademy.ru/ecmascript/11/user/235995).
-* Наставник: `Неизвестно`.
+* Наставник 80-го уровня: `На халяву не бывает!`.
 
 ---
 
