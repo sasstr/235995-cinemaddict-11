@@ -31,7 +31,7 @@ const createMenuTemplate = () => {
     </div>
     <a href="#stats" class="main-navigation__additional">Stats</a>
   </nav>
-  `);
+  `.trim());
 };
 
 /**
@@ -45,7 +45,7 @@ const createSortTemplate = () => {
     <li><a href="#" class="sort__button">Sort by date</a></li>
     <li><a href="#" class="sort__button">Sort by rating</a></li>
   </ul>
-  `);
+  `.trim());
 };
 
 /**
@@ -152,7 +152,7 @@ const createFilmsTemplate = () => {
 
       <button class="films-list__show-more">Show more</button>
     </section>
-  `);
+  `.trim());
 };
 
 /**
@@ -202,7 +202,7 @@ const createTopRatedTemplate = () => {
         </article>
       </div>
     </section>
-  `);
+  `.trim());
 };
 
 /**
@@ -252,7 +252,7 @@ const createMostCommentedTemplate = () => {
         </article>
       </div>
     </section>
-  `);
+  `.trim());
 };
 
 /**
