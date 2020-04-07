@@ -16,8 +16,13 @@ const render = (container, template, place = `beforeend`) => {
  * @param {string} card разметка карточки
  * @return {void}
  */
-const renderCards = (conteiner, amount, card = createFilmCardTemplate()) => {
+const renderCards = (conteiner, amount, card) => {
   for (let i = 0; i < amount; i++) {
     render(conteiner, card);
   }
+};
+
+export {
+  render,
+  renderCards
 };

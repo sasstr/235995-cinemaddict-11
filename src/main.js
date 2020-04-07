@@ -1,24 +1,10 @@
+import {render, renderCards} from './components/utils.js';
+import {createUserRankTemplate} from './components/user-rank.js';
+
 const CardsAmount = {
   FILMS: 5,
   TOP_RATED: 2,
   MOST_COMMENTED: 2,
-};
-
-/**
- * Функция отрисовывает шаблон profile
- * @return {string} Шаблон profile
- */
-const createUserRankTemplate = () => {
-  return (`
-  <section class="header__profile profile">
-    <p class="profile__rating">Movie Buff</p>
-    <img  class="profile__avatar"
-          src="images/bitmap@2x.png"
-          alt="Avatar"
-          width="35"
-          height="35">
-  </section>
-  `.trim());
 };
 
 /**
@@ -83,7 +69,7 @@ const createFilmCardTemplate = () => {
  * Функция отрисовывает шаблон фильмов
  * @return {string} Шаблон фильмов
  */
-const createFilmsTemplate = () => {
+const createFilmsContainerTemplate = () => {
   return (`
   <section class="films">
     <section class="films-list">
@@ -136,30 +122,6 @@ const createShowMoreBtnTemplate = () => {
   return (`<button class="films-list__show-more">Show more</button>`.trim());
 };
 
-/**
- * Функция отрисует карточку фильма
- * @param {node} conteiner контейнер куда надо добавить разметку
- * @param {number} amount кол-во карточек которые надо отрисовать
- * @param {string} card разметка карточки
- * @return {void}
- */
-/* const renderCards = (conteiner, amount, card = createFilmCardTemplate()) => {
-  for (let i = 0; i < amount; i++) {
-    render(conteiner, card);
-  }
-}; */
-
-/**
- * Функция вставляет шаблон в контейнер
- * @param {node} container контейнер куда будет вставлен шаблон
- * @param {string} template разметка для вставки
- * @param {string} place место куда будет вставлен шаблон
- * @return {void}
- */
-/* const render = (container, template, place = `beforeend`) => {
-  container.insertAdjacentHTML(place, template);
-}; */
-
 const header = document.querySelector(`.header`);
 const main = document.querySelector(`.main`);
 
@@ -168,7 +130,7 @@ render(main, createMenuTemplate());
 render(main, createSortTemplate());
 
 
-render(main, createFilmsTemplate());
+render(main, createFilmsContainerTemplate());
 render(main, createTopRatedTemplate());
 render(main, createMostCommentedTemplate());
 
@@ -176,9 +138,9 @@ const films = document.querySelector(`.films`);
 const filmsListContainer = document.querySelector(`.films .films-list__container`);
 const filmsListExtraContainers = document.querySelectorAll(`.films-list--extra .films-list__container`);
 
-renderCards(filmsListContainer, CardsAmount.FILMS);
+renderCards(filmsListContainer, CardsAmount.FILMS, createFilmCardTemplate());
 
 render(films, createShowMoreBtnTemplate());
 
-renderCards(filmsListExtraContainers[0], CardsAmount.TOP_RATED);
-renderCards(filmsListExtraContainers[1], CardsAmount.MOST_COMMENTED);
+renderCards(filmsListExtraContainers[0], CardsAmount.TOP_RATED, createFilmCardTemplate());
+renderCards(filmsListExtraContainers[1], CardsAmount.MOST_COMMENTED, createFilmCardTemplate());
