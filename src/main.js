@@ -1,126 +1,12 @@
-import {render, renderCards} from './components/utils.js';
-import {createUserRankTemplate} from './components/user-rank.js';
-
-const CardsAmount = {
-  FILMS: 5,
-  TOP_RATED: 2,
-  MOST_COMMENTED: 2,
-};
-
-/**
- * Функция отрисовывает шаблон меню
- * @return {string} Шаблон меню
- */
-const createMenuTemplate = () => {
-  return (`
-  <nav class="main-navigation">
-    <div class="main-navigation__items">
-      <a href="#all" class="main-navigation__item main-navigation__item--active">All movies</a>
-      <a href="#watchlist" class="main-navigation__item">Watchlist <span class="main-navigation__item-count">13</span></a>
-      <a href="#history" class="main-navigation__item">History <span class="main-navigation__item-count">4</span></a>
-      <a href="#favorites" class="main-navigation__item">Favorites <span class="main-navigation__item-count">8</span></a>
-    </div>
-    <a href="#stats" class="main-navigation__additional">Stats</a>
-  </nav>
-  `.trim());
-};
-
-/**
- * Функция отрисовывает шаблон меню сортировки
- * @return {string} Шаблон меню сортировки
- */
-const createSortTemplate = () => {
-  return (`
-  <ul class="sort">
-    <li><a href="#" class="sort__button sort__button--active">Sort by default</a></li>
-    <li><a href="#" class="sort__button">Sort by date</a></li>
-    <li><a href="#" class="sort__button">Sort by rating</a></li>
-  </ul>
-  `.trim());
-};
-
-/**
- * Функция отрисовывает шаблон меню сортировки
- * @return {string} Шаблон меню сортировки
- */
-const createFilmCardTemplate = () => {
-  return (`
-  <article class="film-card">
-      <h3 class="film-card__title">Popeye the Sailor Meets Sindbad the Sailor</h3>
-      <p class="film-card__rating">6.3</p>
-      <p class="film-card__info">
-        <span class="film-card__year">1936</span>
-        <span class="film-card__duration">16m</span>
-        <span class="film-card__genre">Cartoon</span>
-      </p>
-      <img src="./images/posters/popeye-meets-sinbad.png" alt="" class="film-card__poster">
-      <p class="film-card__description">In this short, Sindbad the Sailor (presumably Bluto playing a "role") proclaims himself, in song, to be the greatest sailor, adventurer and…</p>
-      <a class="film-card__comments">0 comments</a>
-      <form class="film-card__controls">
-        <button class="film-card__controls-item button film-card__controls-item--add-to-watchlist film-card__controls-item--active">Add to watchlist</button>
-        <button class="film-card__controls-item button film-card__controls-item--mark-as-watched film-card__controls-item--active">Mark as watched</button>
-        <button class="film-card__controls-item button film-card__controls-item--favorite film-card__controls-item--active">Mark as favorite</button>
-      </form>
-    </article>
-  `.trim());
-};
-
-/**
- * Функция отрисовывает шаблон фильмов
- * @return {string} Шаблон фильмов
- */
-const createFilmsContainerTemplate = () => {
-  return (`
-  <section class="films">
-    <section class="films-list">
-      <h2 class="films-list__title visually-hidden">All movies. Upcoming</h2>
-
-      <div class="films-list__container">
-
-      </div>
-    </section>
-  `.trim());
-};
-
-/**
- * Функция отрисовывает шаблон лучших фильмов
- * @return {string} Шаблон лучших фильмов
- */
-const createTopRatedTemplate = () => {
-  return (`
-  <section class="films-list--extra">
-      <h2 class="films-list__title">Top rated</h2>
-
-      <div class="films-list__container">
-
-      </div>
-    </section>
-  `.trim());
-};
-
-/**
- * Функция отрисовывает шаблон фильмов с наибольшем кол-ом комментариев
- * @return {string} Шаблон фильмов с наибольшем кол-ом комментариев
- */
-const createMostCommentedTemplate = () => {
-  return (`
-  <section class="films-list--extra">
-      <h2 class="films-list__title">Most commented</h2>
-
-      <div class="films-list__container">
-
-      </div>
-    </section>
-  `.trim());
-};
-
-/**
- * Функция отрисовывает шаблон кнопки
- * @return {string} Шаблон кнопки
- */
-const createShowMoreBtnTemplate = () => {
-  return (`<button class="films-list__show-more">Show more</button>`.trim());
-};
+import {render, renderCards, CardsAmount} from './components/utils';
+import {createUserRankTemplate} from './components/user-rank';
+import {createMenuTemplate} from './components/menu';
+import {createSortTemplate} from './components/sort';
+import {createFilmCardTemplate} from './components/film-card';
+import {createFilmsContainerTemplate} from './components/films-container';
+import {createTopRatedTemplate} from './components/top-rated';
+import {createMostCommentedTemplate} from './components/most-commented';
+import {createShowMoreBtnTemplate} from './components/show-more-button';
 
 const header = document.querySelector(`.header`);
 const main = document.querySelector(`.main`);
@@ -139,7 +25,6 @@ const filmsListContainer = document.querySelector(`.films .films-list__container
 const filmsListExtraContainers = document.querySelectorAll(`.films-list--extra .films-list__container`);
 
 renderCards(filmsListContainer, CardsAmount.FILMS, createFilmCardTemplate());
-
 render(films, createShowMoreBtnTemplate());
 
 renderCards(filmsListExtraContainers[0], CardsAmount.TOP_RATED, createFilmCardTemplate());

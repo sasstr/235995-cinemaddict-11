@@ -22,7 +22,14 @@ const renderCards = (conteiner, amount, card) => {
   }
 };
 
+const CardsAmount = {
+  FILMS: 5,
+  TOP_RATED: 2,
+  MOST_COMMENTED: 2,
+};
+
 export {
   render,
-  renderCards
+  renderCards,
+  CardsAmount
 };
