@@ -1,5 +1,3 @@
-'use strict';
-
 const CardsAmount = {
   FILMS: 5,
   TOP_RATED: 2,
@@ -145,11 +143,11 @@ const createShowMoreBtnTemplate = () => {
  * @param {string} card разметка карточки
  * @return {void}
  */
-const renderCards = (conteiner, amount, card = createFilmCardTemplate()) => {
+/* const renderCards = (conteiner, amount, card = createFilmCardTemplate()) => {
   for (let i = 0; i < amount; i++) {
     render(conteiner, card);
   }
-};
+}; */
 
 /**
  * Функция вставляет шаблон в контейнер
@@ -158,9 +156,9 @@ const renderCards = (conteiner, amount, card = createFilmCardTemplate()) => {
  * @param {string} place место куда будет вставлен шаблон
  * @return {void}
  */
-const render = (container, template, place = `beforeend`) => {
+/* const render = (container, template, place = `beforeend`) => {
   container.insertAdjacentHTML(place, template);
-};
+}; */
 
 const header = document.querySelector(`.header`);
 const main = document.querySelector(`.main`);
